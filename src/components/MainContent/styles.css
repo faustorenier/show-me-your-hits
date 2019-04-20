@@ -1,0 +1,101 @@
+.c__MainContent {
+    float: left;
+    position: relative;
+    width: 65%;
+    height: 180px;
+    background-color: #FFF;
+}
+
+.c__MainContent_title_wrapper {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.c__MainContent_num {
+    width: 35px;
+    height: 35px;
+    background-color: #1D2125;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    font-size: 21px;
+    font-weight: 400;
+    margin: 0 auto;
+}
+
+.c__MainContent_title {
+    color: #1D2125;
+    font-size: 52px;
+    line-height: 42px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-left: 15px;
+}
+
+.c__MainContent_navigator {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    width: 130px;
+    height: 50px;
+    transform: translateY(-50%);
+}
+
+.c__MainContent_counter {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 90px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.c__MainContent_counter_curr {
+    font-size: 42px;
+    line-height: 42px;
+    color: #1D2125;
+}
+  
+.c__MainContent_counter_tot {
+    font-size: 21px;
+    line-height: 21px;
+    color: #DBDCE1;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    width: 11px;
+    height: 22px;
+    background-image: url("../../static/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.25;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.arrow.active {
+    opacity: 1;
+}
+  
+.arrow:first-child {
+    left: 0;
+    transform: translateY(-50%) rotateY(180deg);
+}
+  
+.arrow:last-child {
+    right: 0;
+    transform: translateY(-50%);
+}
