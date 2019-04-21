@@ -1,7 +1,7 @@
 .c__MainImg {
     position: relative;
     width: 100%;
-    height: calc(100% - 270px);
+    height: calc(100% - 180px);
     overflow: hidden;
     background-color: #FF0440;
 }
@@ -41,6 +41,7 @@
     transform: translateX(-50%);
     background-color: #1D2125;
     color: #FFF;
+    text-align: center;
     border-radius: 2px;
     padding: 12px 17px;
     z-index: 2;
@@ -49,8 +50,7 @@
 @media screen and (min-width: 901px) {
 
     .c__MainImg {
-        float: left;
-        width: 65%;
+        width: 100%;
         height: calc(100% - 180px);
     }
 
@@ -75,6 +75,18 @@
         left: auto;
         right: 30px;
         transform: translateX(0);
+    }
+
+}
+
+@media screen and (min-width: 1201px) {
+
+    .c__MainImg_profile {
+        left: 50px;
+    }
+
+    .c__MainImg_genre {
+        right: 50px;
     }
 
 }

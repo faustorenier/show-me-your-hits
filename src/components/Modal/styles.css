@@ -1,0 +1,122 @@
+.c__Modal_bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #1d2125;
+    opacity: 0.95;
+    z-index: 100;
+}
+
+.c__Modal_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: calc(100% - 60px);
+    max-width: 700px;
+    background-color: #FFF;
+    border-radius: 2px;
+    z-index: 101;
+}
+
+.c__Modal_content_wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.c__Modal_content h1 {
+    font-size: 28px;
+    text-align: center;
+    text-transform: capitalize;
+    max-width: 300px;
+}
+
+.c__Modal_content img {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-radius: 2px;
+    object-fit: cover;
+}
+
+.c__Modal a {
+    width: 100%;
+    max-width: 300px;
+}
+
+
+
+.c__Modal_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-bottom-left-radius: 1px;
+    background-color: #25292D;
+    transition: all 0.25s cubic-bezier(0.79, 0.15, 0.15, 0.9);
+}
+
+.c__Modal_close:hover {
+    background-color: #000;
+    transition: all 0.25s cubic-bezier(0.79, 0.15, 0.15, 0.9);
+}
+
+.c__Modal_close_rect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+    transform-origin: 50% 50%;
+    width: 3px;
+    height: 17px;
+    background-color: #FFF;
+    border-radius: 2px;
+}
+
+.c__Modal_close_rect:last-child {
+    transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+@media screen and (min-width: 481px) {
+
+    .c__Modal_content h1 {
+        font-size: 32px;
+    }
+
+    .c__Modal_close {
+        width: 50px;
+        height: 50px;
+    }
+
+}
+
+@media screen and (min-width: 601px) {
+
+    .c__Modal_content {
+        width: calc(100% - 100px);
+    }
+
+}
+
+@media screen and (min-width: 901px) {
+    
+    .c__Modal_content_wrapper {
+        padding: 60px 30px;
+    }
+
+    .c__Modal_close {
+        width: 55px;
+        height: 55px;
+    }
+    
+}

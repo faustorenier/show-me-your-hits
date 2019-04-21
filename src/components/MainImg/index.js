@@ -1,6 +1,12 @@
 import React from "react";
 import "./styles.css";
 
+function capitalize(str) {
+    const arr = str.split(" ");
+    const final = arr.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+    return final.join(" ")
+}
+
 const MainImg = ({ current, user }) => {
 
     return (
@@ -9,7 +15,7 @@ const MainImg = ({ current, user }) => {
             <a href={user.uri}>
                 <img src={user.imgUrl} alt={user.name} className="c__MainImg_profile" draggable="false" />
             </a>
-            <span className="c__MainImg_genre"><p>{current.genres[0]}</p></span>
+            <span className="c__MainImg_genre"><p>{capitalize(current.genres[0])}</p></span>
         </div>
     );
 }

@@ -5,8 +5,9 @@ import { NavLink } from "react-router-dom";
 import Twitter from "../Social/Twitter";
 import "./styles.css"
 
-const MainNav = () => {
+const MainNav = ({ isVisible }) => {
     return (
+        isVisible &&
         <div className="c__mainNav">
             <div className="c__mainNav_item">
                 <p className="hide-mobile">Top:</p>

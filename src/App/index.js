@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import queryString from "query-string";
 import * as api from "../utils/api";
-import modal from "../utils/modal";
+import * as modal from "../utils/modals";
 import formatUserName from "../utils/extra/formatUserName";
 import Home from "../scenes/Home";
 import Artists from "../scenes/Artists";
 import NotFound from '../scenes/NotFound';
 import MainNav from '../components/MainNav';
+import Modal from '../components/Modal';
 
 class App extends Component {
 
@@ -17,7 +18,13 @@ class App extends Component {
     artists: [],
     tracks: [],
     showLogin: true,
-    showMainNav: false
+    showMainNav: false,
+    modal: {
+      isVisible: false,
+      message: "",
+      link: "",
+      image: ""
+    }
   }
 
   componentDidMount = async () => {
@@ -35,7 +42,7 @@ class App extends Component {
 
   getUser = async token => {
     const { error, success: userData } = await api.user(token);
-    if (error) return modal(error);
+    if (error) return modal.error(error);
     return {
       name: formatUserName(userData),
       id: userData.id,
@@ -46,18 +53,18 @@ class App extends Component {
 
   getArtists = async token => {
     const { error, success: artists } = await api.artists(token);
-    if (error) return modal(error);
+    if (error) return modal.error(error);
     return artists;
   }
 
   getTracks = async token => {
     const { error, success: tracks } = await api.tracks(token);
-    if (error) return modal(error);
+    if (error) return modal.error(error);
 
     const tracksWithGenre = await tracks.map(async track => {
       const artistId = track.artists[0].id;
       const { error, success: artist } = await api.artist(artistId, token);
-      if (error) return modal(error);
+      if (error) return modal.error(error);
       const genre = artist.genres[0];
       track.genre = genre;
       return track;
@@ -67,8 +74,39 @@ class App extends Component {
       .then(tracks => { return tracks; });
   }
 
-  createPlaylist = () => {
-    console.log("create playlist...");
+  createPlaylist = async seed => {
+    const accessToken = this.state.accessToken;
+    const userID = this.state.user.id;
+    const data = (seed === "seed_artists") ? this.state.artists : this.state.tracks;
+
+    // create playlist
+    const { error, success: playlist } = await api.createPlaylist(userID, accessToken);
+    if (error) return modal.error(error);
+
+    // find recommendations
+    const { error: error2, success: recommendations } = await api.getRecommendations(accessToken, seed, data);
+    if (error2) return modal.error(error);
+
+    // get recommendations uris
+    let uris = [];
+    recommendations.tracks.forEach(item => uris.push(item.uri));
+
+    // add tracks to playlist
+    const { error: error3 } = await api.addTracksToPlaylist(userID, playlist.id, uris, accessToken);
+    if (error3) return modal.error(error);
+
+    // get cover
+    const { error: error4, success: imageUrl } = await api.getPlaylistCover(userID, playlist.id, accessToken);
+    if (error4) return modal.error(error);
+
+    // launch modal
+    const modal = {
+      isVisible: true,
+      message: "Playlist successfully uploaded!",
+      link: playlist.uri,
+      image: imageUrl
+    };
+    this.setState({ modal });
   }
 
   handleMainNav = page => {
@@ -76,50 +114,48 @@ class App extends Component {
     this.setState({ showMainNav });
   }
 
-  render() {
-    const { accessToken, user, artists, tracks, showLogin, showMainNav } = this.state;
+  display = page => {
+    return (this.state[page].length !== 0) ? true : false;
+  }
 
-    return accessToken ?
-      (
-        <React.Fragment>
-          {showMainNav && <MainNav />}
-          <Switch>
-            <Route
-              path={"/artists"}
-              render={props => <Artists {...props}
-                artists={artists}
-                user={user}
-                handleMainNav={this.handleMainNav}
-                createPlaylist={this.createPlaylist}
-              />}
-            />
-            <Route path={"/not-found"} component={NotFound} />
-            <Route
-              path={"/"}
-              exact
-              render={props => <Home {...props}
-                showLogin={showLogin}
-                handleMainNav={this.handleMainNav}
-              />}
-            />
-          </Switch>
-        </React.Fragment>
-      )
-      : (
-        <React.Fragment>
-          <Switch>
-            <Route path={"/not-found"} component={NotFound} />
-            <Route
-              path={"/"}
-              exact
-              render={props => <Home {...props}
-                showLogin={showLogin}
-                handleMainNav={this.handleMainNav}
-              />}
-            />
-          </Switch>
-        </React.Fragment>
-      )
+  resetModal() {
+    const modal = { isVisible: false, message: "", link: "", image: "" };
+    this.setState({ modal });
+  }
+
+  render() {
+    const { accessToken, user, artists, tracks, showLogin, showMainNav, modal } = this.state;
+
+    return (
+      <React.Fragment>
+
+        <MainNav isVisible={showMainNav} />
+        {modal.isVisible && <Modal data={modal} close={() => this.resetModal()} />}
+
+        <Switch>
+          {this.display("artists") && <Route
+            path={"/artists"}
+            render={props => <Artists {...props}
+              artists={artists}
+              user={user}
+              handleMainNav={this.handleMainNav}
+              handlePlaylist={this.createPlaylist}
+            />}
+          />}
+          <Route path={"/not-found"} component={NotFound} />
+          <Route
+            path={"/"}
+            exact
+            render={props => <Home {...props}
+              showLogin={showLogin}
+              handleMainNav={this.handleMainNav}
+            />}
+          />
+          {/* <Redirect to="/not-found" /> */}
+        </Switch>
+
+      </React.Fragment>
+    );
   }
 }
 

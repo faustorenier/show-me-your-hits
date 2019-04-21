@@ -9,15 +9,12 @@ const MainContent = ({ type, current, currentNum, totalNum, onChange }) => {
     return (
         <div className="c__MainContent">
 
-            <div className="c__MainContent_title_wrapper">
-                <div className="c__MainContent_num">{currentNum}</div>
-                <h1 className="c__MainContent_title">{current.name}</h1>
-            </div>
-
+            <div className="c__MainContent_num">{currentNum}</div>
+            <h1 className="c__MainContent_title">{current.name}</h1>
 
             <div className="c__MainContent_navigator">
                 <div id="backward" className={arrowClassBackward} onClick={(e) => (currentNum > 1) && onChange(e.target.id)}></div>
-                <div className="c__MainContent_counter">
+                <div className="c__MainContent_counter hide-mobile">
                     <div className="c__MainContent_counter_curr">{currentNum}</div>
                     <div className="c__MainContent_counter_tot">/ {totalNum}</div>
                 </div>

@@ -19,8 +19,8 @@
     position: absolute;
     top: 30px;
     left: 30px;
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
 }
 
 .c__Logger_id img {
@@ -29,13 +29,16 @@
 }
 
 .c__Logger_content h1 {
-    font-size: 42px;
-    line-height: 34px;
+    font-size: 46px;
+    line-height: 40px;
     color: #121416;
+    margin-top: 50px;
 }
 
 .c__Logger_content p {
     color: #FFF;
+    font-size: 19px;
+    line-height: 32px;
     margin: 15px 0;
 }
 
@@ -48,8 +51,6 @@
     .c__Logger_id {
         top: 50px;
         left: 50px;
-        width: 90px;
-        height: 90px;
     }
 
     .c__Logger_content {
@@ -58,13 +59,12 @@
     }
 
     .c__Logger_content h1 {
-        font-size: 64px;
-        line-height: 54px;
+        font-size: 54px;
+        line-height: 44px;
+        margin-top: 0;
     }
 
     .c__Logger_content p {
-        font-size: 19px;
-        line-height: 32px;
         margin: 30px 0;
     }
 
@@ -95,7 +95,12 @@
     }
 
     .c__Logger_content {
-        margin-top: 90px;
+        margin-top: 50px;
+    }
+
+    .c__Logger_content h1 {
+        font-size: 64px;
+        line-height: 54px;
     }
 
     .c__Logger_content p {
