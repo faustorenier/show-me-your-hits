@@ -6,15 +6,15 @@ import nav from "../../utils/extra/navigation";
 import getQueque from "../../utils/extra/getQueque";
 import "./styles.css";
 
-class Artists extends Component {
+class Tracks extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            artists: props.artists,
+            tracks: props.tracks,
             current: 0,
-            total: props.artists.length,
-            queque: getQueque(props.artists, props.artists[0]),
+            total: props.tracks.length,
+            queque: getQueque(props.tracks, props.tracks[0]),
             user: props.user
         }
         props.handleMainNav(props.location.pathname.slice(1));
@@ -22,33 +22,32 @@ class Artists extends Component {
 
     handleChange = direction => {
         const current = nav(direction, this.state.current, this.state.total);
-        const queque = getQueque(this.state.artists, this.state.artists[current]);
+        const queque = getQueque(this.state.tracks, this.state.tracks[current]);
         this.setState({ current: current, queque: queque });
     }
 
     render() {
-        const { artists, current, total, user, queque } = this.state;
-
+        const { tracks, current, total, user, queque } = this.state;
         return (
             <React.Fragment>
                 <div className="page" id="artists">
                     <div className="s__Artists_main_container">
                         <MainImg
-                            name={artists[current].name}
-                            img={artists[current].images[0].url}
-                            genre={artists[current].genres[0]}
+                            name={tracks[current].name}
+                            img={tracks[current].album.images[0].url}
+                            genre={tracks[current].genre}
                             user={user}
                         />
                         <MainContent
-                            type={"artists"}
-                            current={artists[current]}
+                            type={"tracks"}
+                            current={tracks[current]}
                             currentNum={current + 1}
                             totalNum={total}
                             onChange={this.handleChange}
                         />
                     </div>
                     <Queque
-                        type={"artists"}
+                        type={"tracks"}
                         queque={queque}
                         name={user.name}
                         handlePlaylist={() => this.props.handlePlaylist("seed_artists")}
@@ -57,7 +56,6 @@ class Artists extends Component {
             </React.Fragment>
         );
     }
-
 }
 
-export default Artists;
+export default Tracks;

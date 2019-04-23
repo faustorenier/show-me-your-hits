@@ -36,7 +36,7 @@
 .c__Modal_cont h1 {
     font-size: 28px;
     text-align: center;
-    text-transform: capitalize;
+    text-transform: none;
     max-width: 300px;
     margin-bottom: 30px;
 }
@@ -103,9 +103,9 @@
 @media screen and (min-width: 601px) {
 
     .c__Modal_cont {
-        top: 15%;
+        top: 12%;
         right: 15%;
-        bottom: 15%;
+        bottom: 12%;
         left: 15%;
     }
 
@@ -119,10 +119,8 @@
 @media screen and (min-width: 901px) {
     
     .c__Modal_cont {
-        top: 15%;
-        right: 20%;
-        bottom: 15%;
-        left: 20%;
+        right: 25%;
+        left: 25%;
     }
 
     .c__Modal_cont h1 {

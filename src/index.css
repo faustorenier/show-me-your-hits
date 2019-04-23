@@ -1,6 +1,10 @@
 html { box-sizing: border-box; }
 *, *:before, *:after { box-sizing: inherit; margin: 0; }
 
+::selection {
+  background: transparent;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -39,17 +43,6 @@ p {
 
 .hide-mobile {
   display: none;
-}
-
-.cta {
-  color: #FF0440;
-  font-size: 16px;
-  line-height: 16px;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 1px;
-  cursor: pointer;
-  text-decoration: none;
 }
 
 @media screen and (min-width: 481px) {}

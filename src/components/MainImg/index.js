@@ -7,15 +7,15 @@ function capitalize(str) {
     return final.join(" ")
 }
 
-const MainImg = ({ current, user }) => {
+const MainImg = ({ name, img, genre, user }) => {
 
     return (
         <div className="c__MainImg">
-            <img src={current.images[0].url} alt={current.name} className="c__MainImg_main" draggable="false" />
+            <img src={img} alt={name} className="c__MainImg_main" draggable="false" />
             <a href={user.uri}>
                 <img src={user.imgUrl} alt={user.name} className="c__MainImg_profile" draggable="false" />
             </a>
-            <span className="c__MainImg_genre"><p>{capitalize(current.genres[0])}</p></span>
+            <span className="c__MainImg_genre"><p>{capitalize(genre)}</p></span>
         </div>
     );
 }

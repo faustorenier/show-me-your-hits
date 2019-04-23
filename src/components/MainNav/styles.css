@@ -18,6 +18,7 @@
 
 .c__mainNav_item:last-child {
   width: 90px;
+  float: right;
 }
 
 .c__mainNav_item p, .c__mainNav_item nav {
@@ -54,7 +55,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #DBDCE1;
 }
 
 .c__mainNav_share div {
@@ -64,11 +64,11 @@
 @media screen and (min-width: 601px) {
 
   .c__mainNav_item {
-    width: 70%;
+    width: calc(100% - 160px);
   }
   
   .c__mainNav_item:last-child {
-    width: 30%;
+    width: 160px;
   }
 
   .c__mainNav_item nav {
@@ -95,10 +95,10 @@
   .c__mainNav_id {
     display: block;
     position: absolute;
-    top: 30px;
+    top: 35px;
     left: 50%;
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
     transform: translateX(-50%);
     z-index: 2;
   }

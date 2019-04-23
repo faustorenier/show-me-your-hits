@@ -87,7 +87,12 @@
 @media screen and (min-width: 601px) {
 
     .c__MainContent_navigator {
-        width: 130px;
+        position: absolute;
+        bottom: 50%;
+        left: auto;
+        right: 30px;
+        transform: translateY(50%);
+        width: 125px;
         height: 30px;
     }
 
@@ -102,24 +107,16 @@
     }
     
     .c__MainContent_counter_curr {
-        font-size: 34px;
-        line-height: 34px;
+        font-size: 42px;
+        line-height: 42px;
         color: #1D2125;
         margin-right: 5px;
     }
       
     .c__MainContent_counter_tot {
-        font-size: 21px;
-        line-height: 21px;
+        font-size: 24px;
+        line-height: 24px;
         color: #DBDCE1;
-    }
-
-}
-
-@media screen and (min-width: 901px) {
-
-    .c__MainContent {
-        width: 100%;
     }
 
     .c__MainContent_num {
@@ -127,6 +124,16 @@
         top: 50%;
         left: 30px;
         transform: translateY(-50%);
+        width: 35px;
+        height: 35px;
+        background-color: #1D2125;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFF;
+        font-size: 21px;
+        font-weight: 400;
     }
 
     .c__MainContent_title {
@@ -143,28 +150,9 @@
         white-space: normal;
     }
 
-    .c__MainContent_navigator {
-        position: absolute;
-        bottom: 50%;
-        left: auto;
-        right: 30px;
-        transform: translateY(50%);
-        width: 130px;
-        height: 30px;
-    }
-    
-    .c__MainContent_counter_curr {
-        font-size: 42px;
-        line-height: 42px;
-        margin-right: 10px;
-    }
-      
-    .c__MainContent_counter_tot {
-        font-size: 24px;
-        line-height: 24px;
-    }
-
 }
+
+@media screen and (min-width: 901px) {}
 
 @media screen and (min-width: 1201px) {
 

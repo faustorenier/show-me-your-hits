@@ -31,6 +31,17 @@
     text-align: center;
     z-index: 10;
 }
+
+.c__Queque_msg_cta {
+    color: #FF0440;
+    font-size: 16px;
+    line-height: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+  }
   
 .c__Queque_msg h1 {
     color: #FFF;

@@ -9,7 +9,7 @@ const MainNav = ({ isVisible }) => {
     return (
         isVisible &&
         <div className="c__mainNav">
-            <img className="c__mainNav_id" src="/_assets/id-neg.svg" alt="ShowMeYourHits" draggable="false" />
+            {/* <img className="c__mainNav_id" src="/_assets/id-neg.svg" alt="ShowMeYourHits" draggable="false" /> */}
             <div className="c__mainNav_item">
                 <p className="hide-mobile">Top:</p>
                 <nav>
