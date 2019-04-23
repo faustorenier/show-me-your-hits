@@ -5,7 +5,7 @@ import "./styles.css";
 const Logged = (props) => {
     return (
         <React.Fragment>
-            <img className="c__Logged_id" src="/_assets/id.svg" alt="Spotify" draggable="false" />
+            <img className="c__Logged_id" src="/_assets/id.svg" alt="ShowMeYourHits" draggable="false" />
             <div className="c__Logged_top">
                 <NavLink to="/artists">
                     <img src="./_assets/img/home_artists-bg.jpg" alt="" draggable="false" />

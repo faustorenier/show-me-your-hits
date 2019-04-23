@@ -7,7 +7,7 @@ const Logger = ({ handleLogin }) => {
         <React.Fragment>
             <div className="c__Logger_sx">
                 <div className="c__Logger_id">
-                    <img src="/_assets/id.svg" alt="Spotify" draggable="false" />
+                    <img src="/_assets/id.svg" alt="ShowMeYourHits" draggable="false" />
                 </div>
                 <div className="c__Logger_content">
                     <h1>Find out what you've been listening!</h1>

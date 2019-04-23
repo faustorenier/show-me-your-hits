@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Button from "../Button";
 import "./styles.css"
 
 const Queque = ({ type, queque, name, handlePlaylist }) => {
@@ -14,7 +15,9 @@ const Queque = ({ type, queque, name, handlePlaylist }) => {
             </div>
             <div className="c__Queque_playlist">
                 <p>Hey {name}, wanna make a killer Playlist?</p>
-                <div className="btn" onClick={handlePlaylist}>Create Playlist</div>
+                <div className="c__Queque_button_container" onClick={handlePlaylist}>
+                    <Button title="Create Playlist" />
+                </div>
             </div>
         </div>
     );

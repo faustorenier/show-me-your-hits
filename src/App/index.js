@@ -128,10 +128,7 @@ class App extends Component {
 
     return (
       <React.Fragment>
-
         <MainNav isVisible={showMainNav} />
-        {modal.isVisible && <Modal data={modal} close={() => this.resetModal()} />}
-
         <Switch>
           {this.display("artists") && <Route
             path={"/artists"}
@@ -153,7 +150,11 @@ class App extends Component {
           />
           {/* <Redirect to="/not-found" /> */}
         </Switch>
-
+        <Modal
+          isVisible={modal.isVisible}
+          data={modal}
+          close={() => this.resetModal()}
+        />
       </React.Fragment>
     );
   }

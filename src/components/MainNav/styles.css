@@ -1,7 +1,12 @@
 .c__mainNav {
+  position: relative;
   width: 100%;
   height: 90px;
   background-color: #FFF;
+}
+
+.c__mainNav_id {
+  display: none;
 }
 
 .c__mainNav_item {
@@ -86,6 +91,17 @@
 }
 
 @media screen and (min-width: 901px) {
+
+  .c__mainNav_id {
+    display: block;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
 
   .c__mainNav {
     float: left;
