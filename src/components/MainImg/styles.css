@@ -35,6 +35,7 @@
 }
 
 .c__MainImg_genre {
+    display: none;
     position: absolute;
     bottom: 30px;
     left: 50%;
@@ -67,6 +68,7 @@
     }
 
     .c__MainImg_genre {
+        display: block;
         left: auto;
         right: 30px;
         transform: translateX(0);
