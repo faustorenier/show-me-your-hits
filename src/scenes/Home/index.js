@@ -1,12 +1,20 @@
 import React, { Component } from "react";
 import Logger from "../../components/Logger";
 import Logged from "../../components/Logged";
+import * as Pose from "../../utils/poses";
+import keys from "../../utils/poses/keys.json";
 import "./styles.css";
 
 class Home extends Component {
 
-    componentDidMount() {
+    constructor(props) {
+        super(props);
+        this.state = { isVisible: false }
         this.props.handleMainNav(this.props.location.pathname);
+    }
+
+    componentDidMount() {
+        this.setState({ isVisible: true });
     }
 
     handleLogin() {
@@ -18,10 +26,10 @@ class Home extends Component {
     render() {
         const { showLogin } = this.props;
         return (
-            <div className="page" id="home">
+            <Pose.Main key={keys.scenes.home} pose={this.state.isVisible ? "visible" : "hidden"} className="page" id="home">
                 {showLogin && <Logger handleLogin={this.handleLogin} />}
                 {!showLogin && <Logged />}
-            </div>
+            </Pose.Main>
         );
     }
 }

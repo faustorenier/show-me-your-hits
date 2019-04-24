@@ -41,8 +41,19 @@ p {
   letter-spacing: 0.25px;
 }
 
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .hide-mobile {
   display: none;
+}
+
+.animation-frame {
+  float: left;
+  width: calc(100% - 90px);
 }
 
 @media screen and (min-width: 481px) {}

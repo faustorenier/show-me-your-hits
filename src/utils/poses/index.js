@@ -23,3 +23,39 @@ export const modal = {
         }
     })
 }
+
+export const Main = posed.div({
+    hidden: {
+        y: 30,
+        opacity: 0,
+        delay: 150
+    },
+    visible: {
+        y: 0,
+        opacity: 1,
+        delay: 150,
+        transition: {
+            y: { type: 'spring', stiffness: 100 },
+            ease: "easeInOut",
+            duration: 500
+        }
+    }
+});
+
+export const Nav = posed.div({
+    hidden: {
+        y: 30,
+        opacity: 0,
+        delay: 300
+    },
+    visible: {
+        y: 0,
+        opacity: 1,
+        delay: 300,
+        transition: {
+            y: { type: 'spring', stiffness: 100 },
+            ease: "easeInOut",
+            duration: 500
+        }
+    }
+});

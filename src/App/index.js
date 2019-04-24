@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import queryString from "query-string";
+import posed, { PoseGroup } from "react-pose";
 import Home from "../scenes/Home";
 import Artists from "../scenes/Artists";
 import Tracks from "../scenes/Tracks";
-import NotFound from '../scenes/NotFound';
-import MainNav from '../components/MainNav';
-import Modal from '../components/Modal';
+import NotFound from "../scenes/NotFound";
+import MainNav from "../components/MainNav";
+import Modal from "../components/Modal";
 import * as api from "../utils/api";
 import paths from "../utils/extra/paths";
 import formatUserName from "../utils/extra/formatUserName";
@@ -37,14 +38,14 @@ class App extends Component {
   componentDidMount = async () => {
     const { access_token: accessTokenFromUrl } = queryString.parse(window.location.search);
     const accessTokenFromLocalStorage = localStorage.getItem("syh_access_token");
-    accessTokenFromLocalStorage && this.setState({ showLogin: false });
     const accessToken = accessTokenFromUrl || accessTokenFromLocalStorage;
     if (accessToken) {
+      this.setState({ showLogin: false });
       localStorage.setItem("syh_access_token", accessToken);
       const user = await this.getUser(accessToken);
       const artists = await this.getArtists(accessToken);
       const tracks = await this.getTracks(accessToken);
-      this.setState({ accessToken: accessToken, user: user, artists: artists, tracks: tracks, showLogin: false });
+      this.setState({ accessToken: accessToken, user: user, artists: artists, tracks: tracks });
     } else {
       if (window.location.pathname !== "/") window.location.href = "/";
     }
@@ -160,27 +161,34 @@ class App extends Component {
 
     return (
       <React.Fragment>
-        <MainNav isVisible={showMainNav} />
+        {showMainNav && <MainNav />}
+        <Modal isVisible={modal.isVisible} data={modal} close={() => this.resetModal()} />
         <Switch>
+
           {this.display("artists") && <Route
             path={"/artists"}
             render={props => <Artists {...props}
-              artists={artists}
+              type="artists"
+              data={artists}
               user={user}
               handleMainNav={this.handleMainNav}
               handlePlaylist={this.createPlaylist}
             />}
           />}
+
           {this.display("tracks") && <Route
             path={"/tracks"}
             render={props => <Tracks {...props}
-              tracks={tracks}
+              type="tracks"
+              data={tracks}
               user={user}
               handleMainNav={this.handleMainNav}
               handlePlaylist={this.createPlaylist}
             />}
           />}
+
           <Route path={"/not-found"} component={NotFound} />
+
           <Route
             path={"/"}
             exact
@@ -189,13 +197,8 @@ class App extends Component {
               handleMainNav={this.handleMainNav}
             />}
           />
-          {/* <Redirect to="/not-found" /> */}
+
         </Switch>
-        <Modal
-          isVisible={modal.isVisible}
-          data={modal}
-          close={() => this.resetModal()}
-        />
       </React.Fragment>
     );
   }

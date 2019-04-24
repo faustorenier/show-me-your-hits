@@ -1,0 +1,10 @@
+{
+    "scenes": {
+        "home": "anim-scenes-home",
+        "artists": "anim-scenes-artists",
+        "tracks": "anim-scenes-tracks"
+    },
+    "components": {
+        "mainNav": "anim-components-main-nav"
+    }
+}

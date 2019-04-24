@@ -4,6 +4,8 @@ import MainContent from "../../components/MainContent";
 import Queque from "../../components/Queque";
 import nav from "../../utils/extra/navigation";
 import getQueque from "../../utils/extra/getQueque";
+import * as Pose from "../../utils/poses";
+import keys from "../../utils/poses/keys.json";
 import "./styles.css";
 
 class Artists extends Component {
@@ -11,49 +13,55 @@ class Artists extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            artists: props.artists,
+            isVisible: false,
+            type: props.type,
+            items: props.data,
             current: 0,
-            total: props.artists.length,
-            queque: getQueque(props.artists, props.artists[0]),
+            total: props.data.length,
+            queque: getQueque(props.data, props.data[0]),
             user: props.user
         }
         props.handleMainNav(props.location.pathname.slice(1));
     }
 
+    componentDidMount() {
+        this.setState({ isVisible: true });
+    }
+
     handleChange = direction => {
         const current = nav(direction, this.state.current, this.state.total);
-        const queque = getQueque(this.state.artists, this.state.artists[current]);
+        const queque = getQueque(this.state.items, this.state.items[current]);
         this.setState({ current: current, queque: queque });
     }
 
     render() {
-        const { artists, current, total, user, queque } = this.state;
+        const { isVisible, type, items, current, total, queque, user } = this.state;
 
         return (
             <React.Fragment>
-                <div className="page" id="artists">
-                    <div className="s__Artists_main_container">
+                <Pose.Main key={keys.scenes.artists} pose={isVisible ? "visible" : "hidden"} className="s__Main">
+                    <div className="s__Main_container">
                         <MainImg
-                            name={artists[current].name}
-                            img={artists[current].images[0].url}
-                            genre={artists[current].genres[0]}
+                            name={items[current].name}
+                            img={items[current].images[0].url}
+                            genre={items[current].genres[0]}
                             user={user}
                         />
                         <MainContent
-                            type={"artists"}
-                            current={artists[current]}
+                            type={type}
+                            current={items[current]}
                             currentNum={current + 1}
                             totalNum={total}
                             onChange={this.handleChange}
                         />
                     </div>
                     <Queque
-                        type={"artists"}
+                        type={type}
                         queque={queque}
                         name={user.name}
                         handlePlaylist={() => this.props.handlePlaylist("seed_artists")}
                     />
-                </div>
+                </Pose.Main>
             </React.Fragment>
         );
     }

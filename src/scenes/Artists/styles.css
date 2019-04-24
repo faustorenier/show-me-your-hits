@@ -1,16 +1,11 @@
-.page {
+.s__Main {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 90px);
     overflow: hidden;
     background-color: #25292d;
 }
 
-.page#artists {
-    width: 100%;
-    height: calc(100vh - 90px);
-}
-
-.s__Artists_main_container {
+.s__Main_container {
     width: 100%;
     height: calc(100% - 90px);
 }
@@ -18,13 +13,13 @@
 
 @media screen and (min-width: 901px) {
 
-    .page#artists {
+    .s__Main {
         float: left;
         width: calc(100% - 90px);
-        height: 100vh;
+        height: 100%;
     }
 
-    .s__Artists_main_container {
+    .s__Main_container {
         float: left;
         width: 65%;
         height: 100%;
