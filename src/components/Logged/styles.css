@@ -6,6 +6,18 @@
     transition: background-color 0.25s linear;
 }
 
+.c__Logged_top .c__Logged_id {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    width: 90px;
+    height: 90px;
+    transform: translate(-50%,50%);
+    mix-blend-mode: normal;
+    z-index: 2;
+}
+
 .c__Logged_top:hover {
     background-color: #ff0440;
     transition: background-color 0.25s linear;
@@ -33,16 +45,6 @@
     font-size: 42px;
     line-height: 34px;
     text-align: center;
-}
-
-.c__Logged_id {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 90px;
-    height: 90px;
-    transform: translate(-50%,-50%);
-    z-index: 2;
 }
 
 @media screen and (min-width: 481px) {
