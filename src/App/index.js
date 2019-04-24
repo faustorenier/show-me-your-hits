@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import queryString from "query-string";
-import posed, { PoseGroup } from "react-pose";
+// import posed, { PoseGroup } from "react-pose";
 import Home from "../scenes/Home";
 import Artists from "../scenes/Artists";
 import Tracks from "../scenes/Tracks";
