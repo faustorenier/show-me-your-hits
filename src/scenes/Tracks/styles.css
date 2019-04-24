@@ -1,0 +1,28 @@
+.s__Tracks {
+    width: 100%;
+    height: calc(100vh - 90px);
+    overflow: hidden;
+    background-color: #25292d;
+}
+
+.s__Tracks_container {
+    width: 100%;
+    height: calc(100% - 90px);
+}
+
+
+@media screen and (min-width: 901px) {
+
+    .s__Tracks {
+        float: left;
+        width: calc(100% - 90px);
+        height: 100%;
+    }
+
+    .s__Tracks_container {
+        float: left;
+        width: 65%;
+        height: 100%;
+    }
+
+}

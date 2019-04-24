@@ -148,7 +148,9 @@ class App extends Component {
   }
 
   display = page => {
-    return (this.state[page].length !== 0) ? true : false;
+    if (this.state[page]) {
+      return (this.state[page].length !== 0) ? true : false;
+    }
   }
 
   resetModal() {

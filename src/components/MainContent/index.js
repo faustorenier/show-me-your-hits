@@ -1,7 +1,8 @@
 import React from "react";
+import formatTitle from "../../utils/extra/formatMainTitle";
 import "./styles.css"
 
-const MainContent = ({ type, current, currentNum, totalNum, onChange }) => {
+const MainContent = ({ current, currentNum, totalNum, onChange }) => {
 
     const arrowClassForward = (currentNum < totalNum) ? "arrow active" : "arrow";
     const arrowClassBackward = (currentNum > 1) ? "arrow active" : "arrow";
@@ -10,7 +11,7 @@ const MainContent = ({ type, current, currentNum, totalNum, onChange }) => {
         <div className="c__MainContent">
 
             <div className="c__MainContent_num">{currentNum}</div>
-            <h1 className="c__MainContent_title">{current.name}</h1>
+            <h1 className="c__MainContent_title" title={current.name}>{formatTitle(current.name)}</h1>
 
             <div className="c__MainContent_navigator">
                 <div id="backward" className={arrowClassBackward} onClick={(e) => (currentNum > 1) && onChange(e.target.id)}></div>

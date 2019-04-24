@@ -39,8 +39,8 @@ class Tracks extends Component {
 
         return (
             <React.Fragment>
-                <Pose.Main key={keys.scenes.tracks} pose={isVisible ? "visible" : "hidden"} className="s__Main">
-                    <div className="s__Main_container">
+                <Pose.Main key={keys.scenes.tracks} pose={isVisible ? "visible" : "hidden"} className="s__Tracks">
+                    <div className="s__Tracks_container">
                         <MainImg
                             name={items[current].name}
                             img={type === "artists" ? items[current].images[0].url : items[current].album.images[0].url}
@@ -48,7 +48,6 @@ class Tracks extends Component {
                             user={user}
                         />
                         <MainContent
-                            type={type}
                             current={items[current]}
                             currentNum={current + 1}
                             totalNum={total}

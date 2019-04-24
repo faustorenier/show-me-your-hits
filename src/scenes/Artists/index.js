@@ -39,8 +39,8 @@ class Artists extends Component {
 
         return (
             <React.Fragment>
-                <Pose.Main key={keys.scenes.artists} pose={isVisible ? "visible" : "hidden"} className="s__Main">
-                    <div className="s__Main_container">
+                <Pose.Main key={keys.scenes.artists} pose={isVisible ? "visible" : "hidden"} className="s__Artists">
+                    <div className="s__Artists_container">
                         <MainImg
                             name={items[current].name}
                             img={items[current].images[0].url}
@@ -48,7 +48,6 @@ class Artists extends Component {
                             user={user}
                         />
                         <MainContent
-                            type={type}
                             current={items[current]}
                             currentNum={current + 1}
                             totalNum={total}
