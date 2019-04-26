@@ -14,10 +14,10 @@
     position: absolute;
     background: #FFF;
     border-radius: 2px;
-    top: 10%;
-    right: 10%;
-    bottom: 10%;
-    left: 10%;
+    top: 5%;
+    right: 5%;
+    bottom: 5%;
+    left: 5%;
     z-index: 100;
 }
 
