@@ -56,7 +56,6 @@
     text-align: center;
     text-transform: none;
     max-width: 300px;
-    padding: 0 15px;
 }
 
 .c__Modal_cont_img {
@@ -86,7 +85,6 @@
     width: 45px;
     height: 45px;
     cursor: pointer;
-    border-bottom-left-radius: 1px;
     background-color: #25292D;
     transition: all 0.25s cubic-bezier(0.79, 0.15, 0.15, 0.9);
 }
@@ -120,6 +118,11 @@
 
     .c__Modal_cont h1 {
         font-size: 32px;
+    }
+
+    .c__Modal_cont_close {
+        width: 50px;
+        height: 50px;
     }
 
 }
