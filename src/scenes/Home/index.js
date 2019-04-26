@@ -20,9 +20,9 @@ class Home extends Component {
     }
 
     handleLogin() {
-        window.location.href = window.location.href.includes("localhost")
-            ? "http://localhost:8888/login"
-            : "https://showmeyourhitsbridge.herokuapp.com/login"
+        window.location.href = window.location.href.includes("showmeyourhits")
+            ? "https://showmeyourhitsbridge.herokuapp.com/login"
+            : "http://localhost:8888/login"
     }
 
     render() {
