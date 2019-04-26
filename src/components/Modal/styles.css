@@ -10,15 +10,32 @@
     z-index: 99;
 }
 
+.c__Modal_anim {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.c__Modal_anim_wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
 .c__Modal_cont {
     position: absolute;
+    width: calc(100% - 30px);
+    max-width: 530px;
     background: #FFF;
     border-radius: 2px;
-    top: 5%;
-    right: 5%;
-    bottom: 5%;
-    left: 5%;
-    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+    z-index: 101;
 }
 
 .c__Modal_cont_wrap {
@@ -26,7 +43,8 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    padding: 30px;
+    padding: 35px 15px;
+    padding-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,13 +56,14 @@
     text-align: center;
     text-transform: none;
     max-width: 300px;
-    margin-bottom: 30px;
+    padding: 0 15px;
 }
 
 .c__Modal_cont_img {
     width: 100%;
     max-width: 300px;
-    margin-bottom: 15px;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
 .c__Modal_cont_img img {
@@ -57,14 +76,15 @@
 .c__Modal_cont a {
     width: 100%;
     max-width: 300px;
+    /* margin-bottom: 15px; */
 }
 
 .c__Modal_cont_close {
     position: absolute;
     top: 0;
     right: 0;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     cursor: pointer;
     border-bottom-left-radius: 1px;
     background-color: #25292D;
@@ -94,6 +114,10 @@
 
 @media screen and (min-width: 481px) {
 
+    .c__Modal_cont {
+        width: calc(100% - 60px);
+    }
+
     .c__Modal_cont h1 {
         font-size: 32px;
     }
@@ -103,10 +127,7 @@
 @media screen and (min-width: 601px) {
 
     .c__Modal_cont {
-        top: 12%;
-        right: 15%;
-        bottom: 12%;
-        left: 15%;
+        width: calc(100% - 100px);
     }
 
     .c__Modal_cont_close {
@@ -117,11 +138,6 @@
 }
 
 @media screen and (min-width: 901px) {
-    
-    .c__Modal_cont {
-        right: 25%;
-        left: 25%;
-    }
 
     .c__Modal_cont h1 {
         font-size: 34px;
