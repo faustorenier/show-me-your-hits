@@ -26,6 +26,7 @@ class Tracks extends Component {
 
     componentDidMount() {
         this.setState({ isVisible: true });
+        localStorage.removeItem("syh_access_token");
     }
 
     handleChange = direction => {
