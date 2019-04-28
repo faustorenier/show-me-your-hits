@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-// import { PoseGroup } from "react-pose";
-// import * as Anim from "../pose/Anim";
 import * as Pose from "../../utils/poses";
 import keys from "../../utils/poses/keys.json";
-
 import Twitter from "../Social/Twitter";
 import "./styles.css"
 

@@ -91,10 +91,11 @@
 
     .c__Queque_preview {
         display: block;
+        height: calc(100% - 170px);
     }
 
     .c__Queque_playlist {
-        height: 180px;
+        height: 170px;
     }
 
 }

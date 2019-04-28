@@ -151,7 +151,11 @@
 
 }
 
-@media screen and (min-width: 901px) {}
+@media screen and (min-width: 901px) {
+    .c__MainContent {
+        height: 170px;
+    }
+}
 
 @media screen and (min-width: 1201px) {
 
