@@ -12,12 +12,12 @@
 .c__mainNav_item {
   position: relative;
   float: left;
-  width: calc(100% - 90px);
+  width: calc(100% - 140px);
   height: 100%;
 }
 
 .c__mainNav_item:last-child {
-  width: 90px;
+  width: 140px;
   float: right;
 }
 
@@ -58,34 +58,39 @@
 }
 
 .c__mainNav_share div {
+  display: inline-block;
   cursor: pointer;
+  margin-left: 5px;
 }
 
 @media screen and (min-width: 601px) {
 
   .c__mainNav_item {
-    width: calc(100% - 160px);
+    width: calc(100% - 200px);
   }
   
   .c__mainNav_item:last-child {
-    width: 160px;
-  }
-
-  .c__mainNav_item nav {
-    left: 90px;
+    width: 200px;
   }
 
   .c__mainNav_share {
     width: 100%;
     height: 100%;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
 
   .c__mainNav_share div {
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translate(0,-50%);
+    margin-left: 0;
+  }
+
+  .c__mainNav_share div:last-child {
+    margin-right: 15px;
+  }
+
+  .c__mainNav_item nav {
+    left: 90px;
   }
 
 }
@@ -143,14 +148,16 @@
     position: absolute;
     bottom: 105px;
     width: 100%;
-    height: 40px;
+    height: 80px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
   }
 
-  .c__mainNav_share div {
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%,-50%);
+  .c__mainNav_share div:last-child {
+    margin-right: 0;
+    margin-bottom: 5px;
   }
 
 }

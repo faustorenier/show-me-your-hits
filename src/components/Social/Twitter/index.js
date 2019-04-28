@@ -1,5 +1,5 @@
-import React from 'react';
-import { TwitterShareButton, TwitterIcon } from 'react-share';
+import React from "react";
+import { TwitterShareButton, TwitterIcon } from "react-share";
 
 const Twitter = () => {
     const shareUrl = "https://showmeyourhits.netlify.com";

@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import * as Pose from "../../utils/poses";
 import keys from "../../utils/poses/keys.json";
 import Twitter from "../Social/Twitter";
+
+import Facebook from "../Social/Facebook";
 import "./styles.css"
 
 class MainNav extends Component {
@@ -31,6 +33,7 @@ class MainNav extends Component {
                     <p className="hide-mobile">Share:</p>
                     <div className="c__mainNav_share">
                         <Twitter />
+                        <Facebook />
                     </div>
                 </div>
             </Pose.Nav>
